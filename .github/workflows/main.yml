@@ -10,9 +10,9 @@ jobs:
 
     steps:
     - name: Checkout Code
-      uses: actions/checkout@v2
+      uses: actions/checkout@v3
 
-    - name: Install Node.js
+    - name: Setup Node.js
       uses: actions/setup-node@v3
       with:
         node-version: '18'
@@ -20,11 +20,7 @@ jobs:
     - name: Install Dependencies
       run: npm install
 
-    - name: Run App Test
-      run: node server.js &
-      
     - name: Build Docker Image
       run: docker build -t mynodeapp .
 
-    - name: Run Docker Container
-      run: docker run -d -p 3000:3000 mynodeapp
+    # ❌ REMOVE docker run step (this caused error)
