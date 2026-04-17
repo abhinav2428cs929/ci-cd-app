@@ -20,7 +20,7 @@ jobs:
       - name: Install Dependencies
         run: npm install
 
-      - name: Run App (Test)
+      - name: Run App Test
         run: node server.js & sleep 5
 
       - name: Build Docker Image
